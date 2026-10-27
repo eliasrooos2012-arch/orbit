@@ -1,0 +1,15 @@
+{
+  "name": "browser-remote-desktop-relay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Authenticated browser-based remote desktop relay",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}

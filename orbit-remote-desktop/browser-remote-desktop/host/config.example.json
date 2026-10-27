@@ -1,0 +1,7 @@
+{
+  "server_url": "wss://YOUR-SERVER.example.com/agent",
+  "host_token": "PASTE_THE_EXACT_HOST_TOKEN_FROM_YOUR_SERVER_HERE",
+  "fps": 6,
+  "max_width": 1280,
+  "jpeg_quality": 60
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d17">
+  <title>Orbit Remote — Browser Desktop</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Orbit Remote"><span class="brand-icon">◈</span> <span>orbit<span class="brand-muted">remote</span></span></a>
+      <div class="top-actions"><span class="chip"><span id="connectionDot" class="dot"></span><span id="connectionLabel">Disconnected</span></span><button class="minor" id="logoutBtn" hidden>Sign out</button></div>
+    </header>
+    <main>
+      <section id="loginView" class="login-screen">
+        <div class="stars stars-a"></div><div class="stars stars-b"></div>
+        <div class="login-card">
+          <div class="eyebrow">YOUR DESKTOP. ANYWHERE.</div>
+          <div class="hero-symbol">◈</div>
+          <h1>Access your computer<br><span class="accent">from your browser.</span></h1>
+          <p class="subtext">View and control your own computer without installing anything on this device.</p>
+          <form id="loginForm">
+            <label for="passwordInput">Access password</label>
+            <div class="password-field"><input id="passwordInput" type="password" autocomplete="current-password" placeholder="Enter your password" required><button id="showPassword" type="button" aria-label="Show password">Show</button></div>
+            <button class="primary" type="submit" id="loginBtn">Connect to desktop <span>→</span></button>
+            <p role="alert" id="loginError" class="error"></p>
+          </form>
+          <div class="login-footer"><span>♢</span> Encrypted connection when hosted over HTTPS</div>
+        </div>
+      </section>
+      <section id="desktopView" class="desktop-view" hidden>
+        <div class="workspace-header">
+          <div><div class="eyebrow">REMOTE WORKSPACE</div><h1>My computer <span class="live-chip" id="hostIndicator">OFFLINE</span></h1><p class="workspace-sub" id="resolutionLabel">Waiting for host application...</p></div>
+          <div class="workspace-controls"><label class="toggle"><input type="checkbox" id="controlToggle" checked><span class="toggle-track"></span><span>Mouse & keyboard</span></label><button id="fullscreenBtn" class="outline">⛶ Fullscreen</button></div>
+        </div>
+        <div class="screen-shell" id="screenShell">
+          <div class="screen-top"><span class="mac-dots"><i></i><i></i><i></i></span><span id="screenTitle">REMOTE DISPLAY</span><span class="screen-secure">● SECURE SESSION</span></div>
+          <div class="screen-stage" id="screenStage">
+            <canvas id="screenCanvas" tabindex="0" aria-label="Remote desktop. Click to focus mouse and keyboard."></canvas>
+            <div class="screen-overlay" id="screenOverlay"><div class="overlay-icon">◈</div><h2 id="overlayTitle">Waiting for host</h2><p id="overlayMessage">Start the host program on your other computer to begin.</p></div>
+          </div>
+          <div class="screen-bottom"><span><span class="small-dot" id="streamDot"></span> <span id="streamStatus">Stream paused</span></span><span id="lastFrame">No frames yet</span></div>
+        </div>
+        <div class="info-row"><div class="info-card"><div class="info-icon">⌘</div><div><b>Click to control</b><p>Click the screen, then use your mouse and keyboard normally.</p></div></div><div class="info-card"><div class="info-icon">◱</div><div><b>In your browser</b><p>No software is needed on the computer viewing this page.</p></div></div><div class="info-card"><div class="info-icon">◇</div><div><b>Local permission</b><p>Close the host app to stop remote access at any time.</p></div></div></div>
+        <div class="mobile-tip">On a touchscreen, tap to click. Keyboard control works best with a physical keyboard.</div>
+      </section>
+    </main>
+    <footer><span>ORBIT REMOTE / SELF-HOSTED</span><span>Only use on computers you own or have permission to control.</span></footer>
+  </div>
+</body>
+</html>
